@@ -71,9 +71,9 @@ Toolkit.getDefaultToolkit().sync(); //syncronize the screen
 		//bounce ball off paddles
 		if(ball.intersects(paddle1)) {
 			ball.xVelocity = Math.abs(ball.xVelocity);
-			ball.xVelocity++; //optional for more difficulty
+			ball.xVelocity++; 
 			if(ball.yVelocity>0)
-				ball.yVelocity++; //optional for more difficulty
+				ball.yVelocity++;
 			else
 				ball.yVelocity--;
 			ball.setXDirection(ball.xVelocity);
@@ -81,15 +81,15 @@ Toolkit.getDefaultToolkit().sync(); //syncronize the screen
 		}
 		if(ball.intersects(paddle2)) {
 			ball.xVelocity = Math.abs(ball.xVelocity);
-			ball.xVelocity++; //optional for more difficulty
+			ball.xVelocity++; 
 			if(ball.yVelocity>0)
-				ball.yVelocity++; //optional for more difficulty
+				ball.yVelocity++;
 			else
 				ball.yVelocity--;
 			ball.setXDirection(-ball.xVelocity);
 			ball.setYDirection(ball.yVelocity);
 		}
-		//stops paddles at window edges
+		
 		if(paddle1.y<=0)
 			paddle1.y=0;
 		if(paddle1.y >= (screen_height-padle_height))
@@ -98,10 +98,10 @@ Toolkit.getDefaultToolkit().sync(); //syncronize the screen
 			paddle2.y=0;
 		if(paddle2.y >= (screen_height-padle_height))
 			paddle2.y = screen_height-padle_height;
-		//give a player 1 point and creates new paddles & ball
+		
 		if(ball.x <=0) {
 			score.player2++;
-			if (score.player2 == 5) {
+			if (score.player2 == 10) {
 				JOptionPane.showMessageDialog(null, "Player 2 wins!");
 				System.exit(0);
 				MenuFrame menu = new MenuFrame();
@@ -112,7 +112,7 @@ Toolkit.getDefaultToolkit().sync(); //syncronize the screen
 		}
 		if(ball.x >= screen_width-ball_diameter) {
 			score.player1++;
-			if(score.player1 == 5){
+			if(score.player1 == 10){
 				JOptionPane.showMessageDialog(null, "Player 1 wins!");	
 				System.exit(0);
 				MenuFrame menu = new MenuFrame();
